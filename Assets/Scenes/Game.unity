@@ -532,6 +532,8 @@ MonoBehaviour:
   soundManager: {fileID: 1005473735}
   eventManager: {fileID: 1149191678}
   logicManager: {fileID: 2145603322}
+  spriteRenderer: {fileID: 646198582}
+  deadBirdSprite: {fileID: 21300000, guid: e0224dc15fd375e4c9e4186a44017beb, type: 3}
 --- !u!58 &646198586
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1223,7 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.3647059, g: 0.6156863, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1233,7 +1235,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 40
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 80

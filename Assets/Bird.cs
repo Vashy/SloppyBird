@@ -9,6 +9,8 @@ public class Bird : MonoBehaviour
     public GameObject soundManager;
     public EventManager eventManager;
     public LogicManager logicManager;
+    public SpriteRenderer spriteRenderer;
+    public Sprite deadBirdSprite;
 
     private const float minAllowedHeight = -20;
     private const float maxAllowedHeight = 17;
@@ -49,6 +51,7 @@ public class Bird : MonoBehaviour
     {
         logicManager.GameOver();
         IsAlive = false;
+        spriteRenderer.sprite = deadBirdSprite;
         eventManager.EmitBirdDeadEvent();
     }
 }
