@@ -12,8 +12,15 @@ public class Bird : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite deadBirdSprite;
 
+    Animator animator;
+
     private const float minAllowedHeight = -20;
     private const float maxAllowedHeight = 17;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -51,6 +58,7 @@ public class Bird : MonoBehaviour
         logicManager.GameOver();
         IsAlive = false;
         spriteRenderer.sprite = deadBirdSprite;
+        animator.enabled = false;
         eventManager.EmitBirdDeadEvent();
     }
 }

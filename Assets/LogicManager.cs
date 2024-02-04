@@ -29,7 +29,6 @@ public class LogicManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Debug.Log("PIPPO");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
