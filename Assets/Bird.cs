@@ -17,7 +17,6 @@ public class Bird : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(Scenes.Menu.ToString(), LoadSceneMode.Single);
