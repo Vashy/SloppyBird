@@ -1,36 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
 
-public class LogicManagerScript : MonoBehaviour
+public class LogicManager : MonoBehaviour
 {
     public int playerScore;
     public int playerRecordScore;
     public Text playerScoreText;
     public Text playerRecordScoreText;
     public GameObject gameOverScreen;
-    public GameObject soundManager;
-
-    private SoundManagerScript soundManagerScript;
+    public EventManager eventManager;
 
     private void Start()
     {
-        soundManagerScript = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManagerScript>();
         UpdatePlayerRecordScore(PlayerPrefs.GetInt("playerHighScore"));
     }
 
     [ContextMenu("Increase Score")]
-    public void AddScore(int scoreToAdd)
+    public void AddScore(int scoreToAdd = 1)
     {
         playerScore += scoreToAdd;
         playerScoreText.text = playerScore.ToString();
-        soundManagerScript.PlaySound(SoundType.Score);
+        eventManager.EmitScoreUpEvent();
         EvaluateHighScore();
     }
 
     public void RestartGame()
     {
+        Debug.Log("PIPPO");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

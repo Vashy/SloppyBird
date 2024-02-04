@@ -1,23 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BirdScript : MonoBehaviour
+public class Bird : MonoBehaviour
 {
     public Rigidbody2D myRigidBody;
     public float moveFactor;
     public bool IsAlive { get; private set; } = true;
     public GameObject soundManager;
+    public EventManager eventManager;
 
-    private SoundManagerScript soundManagerScript;
-    private LogicManagerScript logic;
+    private LogicManager logic;
 
     private const float minAllowedHeight = -20;
     private const float maxAllowedHeight = 17;
 
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>();
-        soundManagerScript = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManagerScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManager>();
     }
 
     void Update()
@@ -25,7 +24,7 @@ public class BirdScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+            SceneManager.LoadScene(Scenes.Menu.ToString(), LoadSceneMode.Single);
         }
 
         if (IsAlive && Input.GetKeyDown(KeyCode.Space))
@@ -35,7 +34,7 @@ public class BirdScript : MonoBehaviour
 
         if (IsAlive && IsOverScreen())
         {
-            die();
+            Die();
         }
     }
 
@@ -43,7 +42,7 @@ public class BirdScript : MonoBehaviour
     {
         if (IsAlive)
         {
-            die();
+            Die();
         }
     }
 
@@ -52,10 +51,10 @@ public class BirdScript : MonoBehaviour
         return gameObject.transform.position.y < minAllowedHeight || gameObject.transform.position.y > maxAllowedHeight;
     }
 
-    private void die()
+    private void Die()
     {
         logic.GameOver();
         IsAlive = false;
-        soundManagerScript.PlaySound(SoundType.Death);
+        eventManager.EmitBirdDeadEvent();
     }
 }

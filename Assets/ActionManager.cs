@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ActionManagerScript : MonoBehaviour
+public class ActionManager : MonoBehaviour
 {
     public void QuitApplication()
     {
@@ -12,6 +10,6 @@ public class ActionManagerScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        SceneManager.LoadScene(Scenes.Game.ToString(), LoadSceneMode.Single);
     }
 }
