@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PipeScript : MonoBehaviour
+public class Pipe : MonoBehaviour
 {
     public float moveSpeed = 8f;
     public float deadZone = -30f;
@@ -13,7 +13,7 @@ public class PipeScript : MonoBehaviour
 
     private void OnEnable()
     {
-        eventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        eventManager = GameObject.FindGameObjectWithTag(Tags.EventManager.ToString()).GetComponent<EventManager>();
         eventManager.birdDeadEvent.AddListener(HandleBirdDeadEvent);
     }
 

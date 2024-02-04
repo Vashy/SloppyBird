@@ -8,16 +8,10 @@ public class Bird : MonoBehaviour
     public bool IsAlive { get; private set; } = true;
     public GameObject soundManager;
     public EventManager eventManager;
-
-    private LogicManager logic;
+    public LogicManager logicManager;
 
     private const float minAllowedHeight = -20;
     private const float maxAllowedHeight = 17;
-
-    void Start()
-    {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManager>();
-    }
 
     void Update()
     {
@@ -53,7 +47,7 @@ public class Bird : MonoBehaviour
 
     private void Die()
     {
-        logic.GameOver();
+        logicManager.GameOver();
         IsAlive = false;
         eventManager.EmitBirdDeadEvent();
     }

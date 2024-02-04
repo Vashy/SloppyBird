@@ -11,9 +11,11 @@ public class LogicManager : MonoBehaviour
     public GameObject gameOverScreen;
     public EventManager eventManager;
 
+    private const string playerRecordScorePropertyName = "playerHighScore";
+
     private void Start()
     {
-        UpdatePlayerRecordScore(PlayerPrefs.GetInt("playerHighScore"));
+        UpdatePlayerRecordScore(PlayerPrefs.GetInt(playerRecordScorePropertyName));
     }
 
     [ContextMenu("Increase Score")]
@@ -47,7 +49,7 @@ public class LogicManager : MonoBehaviour
     private void UpdatePlayerRecordScore(int newScore)
     {
         playerRecordScore = newScore;
-        PlayerPrefs.SetInt("playerHighScore", newScore);
+        PlayerPrefs.SetInt(playerRecordScorePropertyName, newScore);
         playerRecordScoreText.text = $"HS: {newScore}";
     }
 }

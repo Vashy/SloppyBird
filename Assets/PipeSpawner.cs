@@ -39,7 +39,7 @@ public class PipeSpawner : MonoBehaviour
         float highestPoint = transform.position.y + heightOffset;
         float lowestPoint = transform.position.y - heightOffset;
         GameObject instantiatedPipe = Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-        PipeScript pipeScript = instantiatedPipe.GetComponent<PipeScript>();
+        Pipe pipeScript = instantiatedPipe.GetComponent<Pipe>();
         pipeScript.verticalSpeed = Random.Range(7f, 21f);
     }
 

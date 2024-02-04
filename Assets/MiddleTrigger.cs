@@ -8,8 +8,8 @@ public class MiddleTrigger : MonoBehaviour
 
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManager>();
-        birdScript = GameObject.FindGameObjectWithTag("Bird").GetComponent<Bird>();
+        logic = GameObject.FindGameObjectWithTag(Tags.Logic.ToString()).GetComponent<LogicManager>();
+        birdScript = GameObject.FindGameObjectWithTag(Tags.Bird.ToString()).GetComponent<Bird>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

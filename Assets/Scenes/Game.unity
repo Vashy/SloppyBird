@@ -275,7 +275,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6448024, g: 0.7242346, b: 0.8490566, a: 0}
+  m_BackGroundColor: {r: 0.36320752, g: 0.6155215, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -531,6 +531,7 @@ MonoBehaviour:
   moveFactor: 32
   soundManager: {fileID: 1005473735}
   eventManager: {fileID: 1149191678}
+  logicManager: {fileID: 2145603322}
 --- !u!58 &646198586
 CircleCollider2D:
   m_ObjectHideFlags: 0
